@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZPO6._2.Modele
 {
-    public class Adres
+    public class Adres : IModel
     {
         public long ID { get; set; }
         public string Miasto { get; set; }

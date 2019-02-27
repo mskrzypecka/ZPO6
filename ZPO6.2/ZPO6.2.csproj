@@ -43,11 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUD\CRUD_Account.cs" />
+    <Compile Include="CRUD\CRUD_User.cs" />
     <Compile Include="CRUD\CRUD_Address.cs" />
     <Compile Include="CRUD\ICRUD.cs" />
     <Compile Include="CRUD\CRUD_Dish.cs" />
     <Compile Include="CRUD\CRUD_Order.cs" />
+    <Compile Include="Modele\IModel.cs" />
     <Compile Include="Serwisy\AddressService.cs" />
     <Compile Include="Serwisy\DishService.cs" />
     <Compile Include="Serwisy\OrderService.cs" />

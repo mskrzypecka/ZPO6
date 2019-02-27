@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZPO6._2.Modele
 {
-    public class Uzytkownik
+    public class Uzytkownik : IModel
     {
         public string Login { get; set; }
         public long ID { get; set; }

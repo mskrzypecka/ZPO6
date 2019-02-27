@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZPO6._2.Modele
 {
-    class Danie
+    public class Danie : IModel
     {
         public long ID { get; set; }
         public string Nazwa { get; set; }

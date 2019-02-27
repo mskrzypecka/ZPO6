@@ -17,7 +17,7 @@ namespace ZPO6._2.CRUD
         public int Create(Uzytkownik model)
             => sql.ExecuteNonQuery($"INSERT INTO UZYTKOWNIK (Login, ID, Imie, Nazwisko, Haslo, Email, DataRejestracji, NrTelefonu)"
                 + $"VALUES('{model.Login}', {model.ID}, '{model.Imie}', '{model.Nazwisko}', "
-                + $"'{model.Haslo}', '{model.Email}', '{DateTime.Now}', '{model.NrTelefonu}', {model.AdresID})");
+                + $"'{model.Haslo}', '{model.Email}', '{DateTime.Now}', '{model.NrTelefonu}', {model.Adres.ID})");
         
         public Uzytkownik Read(long id)
         {
@@ -35,7 +35,7 @@ namespace ZPO6._2.CRUD
                     Email = reader.GetString(5).Trim(),
                     DataRejestracji = reader.GetDateTime(6),
                     NrTelefonu = reader.GetString(7).Trim(),
-                    AdresID = new CRUD_Address(connection).Read(reader.GetInt64(8))
+                    Adres = new CRUD_Address(connection).Read(reader.GetInt64(8))
                 };
             }
             return new Uzytkownik();
@@ -43,7 +43,7 @@ namespace ZPO6._2.CRUD
 
         public int Update(Uzytkownik model)
             => sql.ExecuteNonQuery($"UPDATE UZYTKOWNIK SET LOGIN='{model.Login}', IMIE='{model.Imie}', NAZWISKO='{model.Nazwisko}', HASLO='{model.Haslo}', "
-                + $"EMAIL='{model.Email}', DATAREJESTRACJI='{model.DataRejestracji}', NRTELEFONU='{model.NrTelefonu}', ADRESID={model.AdresID} WHERE ID={model.ID}");
+                + $"EMAIL='{model.Email}', DATAREJESTRACJI='{model.DataRejestracji}', NRTELEFONU='{model.NrTelefonu}', ADRESID={model.Adres.ID} WHERE ID={model.ID}");
 
         public int Delete(Uzytkownik model)
             => sql.ExecuteNonQuery($"DELETE FROM UZYTKOWNIK WHERE ID={model.ID}");

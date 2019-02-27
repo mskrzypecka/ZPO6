@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,28 +15,51 @@ namespace ZPO6._2.CRUD
         }
 
         public int Create(Potrawa model)
-        {
-            throw new NotImplementedException();
-        }
+            => sql.ExecuteNonQuery($"INSERT INTO DANIE (ID, NAZWA, CENA, MOZLIWEZAMOWIENIA, JESTWEGE)"
+                + $"VALUES ({model.ID}, '{model.Nazwa}', '{model.Cena}', {model.MozliweZamowienia}, {model.JestWege})");
 
-        public int Delete(Potrawa model)
+        public Potrawa Read(long id)
         {
-            throw new NotImplementedException();
-        }
+            IDataReader reader = sql.ExecuteQuery($"SELECT * FROM DANIE WHERE ID = {id}");
 
-        public List<Potrawa> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+            if (reader.Read())
+            {
+                return new Potrawa
+                {
+                    ID = reader.GetInt64(0),
+                    Nazwa = reader.GetString(1).Trim(),
+                    Cena = reader.GetDecimal(2),
+                    MozliweZamowienia = reader.GetInt32(3),
+                    JestWege = reader.GetBoolean(4)
+                };
+            }
 
-        public int Read(long id)
-        {
-            throw new NotImplementedException();
+            return new Potrawa();
         }
 
         public int Update(Potrawa model)
+            => sql.ExecuteNonQuery($"UPDATE DANIE SET NAZWA='{model.Nazwa}', CENA={model.Cena}, MOZLIWEZAMOWIENIA={model.MozliweZamowienia}, JESTWEGE={model.JestWege} WHERE ID={model.ID}");
+
+        public int Delete(Potrawa model)
+            => sql.ExecuteNonQuery($"DELETE FROM DANIE WHERE ID={model.ID}");
+
+        public List<Potrawa> GetAll()
         {
-            throw new NotImplementedException();
+            List<Potrawa> result = new List<Potrawa>();
+
+            using (IDataReader reader = sql.ExecuteQuery("SELECT * FROM DANIE"))
+                while (reader.Read())
+                {
+                    var Potrawa = new Potrawa
+                    {
+                        ID = reader.GetInt64(0),
+                        Nazwa = reader.GetString(1).Trim(),
+                        Cena = reader.GetDecimal(2),
+                        MozliweZamowienia = reader.GetInt32(3),
+                        JestWege = reader.GetBoolean(4)
+                    };
+                }
+            return result;
         }
     }
 }

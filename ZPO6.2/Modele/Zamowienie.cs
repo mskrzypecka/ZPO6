@@ -10,7 +10,7 @@ namespace ZPO6._2.Modele
     {
         public long ID { get; set; }
         public string Nazwa { get; set; }
-        public DateTime DataZamowienia { get; set; }
+        public string DataZamowienia { get; set; }
         public Uzytkownik Klient { get; set; }
         public Potrawa Danie { get; set; }
     }

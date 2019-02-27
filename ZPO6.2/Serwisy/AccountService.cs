@@ -27,7 +27,7 @@ namespace ZPO6._2
             this.user.Update(user);
         }
 
-        public Uzytkownik CreateUser(string login, string password, string firstname, string lastname, string email, string phone, AdresZamieszkania address)
+        public Uzytkownik CreateUser(string Loggin, string password, string firstname, string lastname, string email, string phone, AdresZamieszkania address)
         {
             long id = this.user.GetAll().Count() > 0 
                         ? this.user.GetAll().Max(x => x.ID) + 1 
@@ -36,14 +36,14 @@ namespace ZPO6._2
             var customer = new Uzytkownik
             {
                 ID = id,
-                Login = login,
+                Loggin = Loggin,
                 Haslo = password,
                 Imie = firstname,
                 Nazwisko = lastname,
                 Email = email,
                 NrTelefonu = phone,
                 Adres = address,
-                DataRejestracji = DateTime.Now
+                DataRejestracji = DateTime.Now.ToString()
             };
             this.user.Create(customer);
 

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZPO6._2.Modele;
 
 namespace ZPO6._2.CRUD
@@ -15,8 +12,8 @@ namespace ZPO6._2.CRUD
         }
 
         public int Create(Uzytkownik model)
-            => sql.ExecuteNonQuery($"INSERT INTO UZYTKOWNIK (Login, ID, Imie, Nazwisko, Haslo, Email, DataRejestracji, NrTelefonu)"
-                + $"VALUES('{model.Login}', {model.ID}, '{model.Imie}', '{model.Nazwisko}', "
+            => sql.ExecuteNonQuery($"INSERT INTO UZYTKOWNIK (Loggin, ID, Imie, Nazwisko, Haslo, Email, DataRejestracji, NrTelefonu, IDAdresu)"
+                + $"VALUES('{model.Loggin}', {model.ID}, '{model.Imie}', '{model.Nazwisko}', "
                 + $"'{model.Haslo}', '{model.Email}', '{DateTime.Now}', '{model.NrTelefonu}', {model.Adres.ID})");
         
         public Uzytkownik Read(long id)
@@ -27,13 +24,13 @@ namespace ZPO6._2.CRUD
             {
                 return new Uzytkownik
                 {
-                    Login = reader.GetString(0).Trim(),
+                    Loggin = reader.GetString(0).Trim(),
                     ID = reader.GetInt64(1),
                     Imie = reader.GetString(2).Trim(),
                     Nazwisko = reader.GetString(3).Trim(),
                     Haslo = reader.GetString(4).Trim(),
                     Email = reader.GetString(5).Trim(),
-                    DataRejestracji = reader.GetDateTime(6),
+                    DataRejestracji = reader.GetString(6),
                     NrTelefonu = reader.GetString(7).Trim(),
                     Adres = new CRUD_Address(connection).Read(reader.GetInt64(8))
                 };
@@ -42,7 +39,7 @@ namespace ZPO6._2.CRUD
         }
 
         public int Update(Uzytkownik model)
-            => sql.ExecuteNonQuery($"UPDATE UZYTKOWNIK SET LOGIN='{model.Login}', IMIE='{model.Imie}', NAZWISKO='{model.Nazwisko}', HASLO='{model.Haslo}', "
+            => sql.ExecuteNonQuery($"UPDATE UZYTKOWNIK SET Loggin='{model.Loggin}', IMIE='{model.Imie}', NAZWISKO='{model.Nazwisko}', HASLO='{model.Haslo}', "
                 + $"EMAIL='{model.Email}', DATAREJESTRACJI='{model.DataRejestracji}', NRTELEFONU='{model.NrTelefonu}', ADRESID={model.Adres.ID} WHERE ID={model.ID}");
 
         public int Delete(Uzytkownik model)
@@ -57,16 +54,16 @@ namespace ZPO6._2.CRUD
                 {
                     var uzytkownk = new Uzytkownik
                     {
-                        Login = reader.GetString(0).Trim(),
+                        Loggin = reader.GetString(0).Trim(),
                         ID = reader.GetInt64(1),
                         Imie = reader.GetString(2).Trim(),
                         Nazwisko = reader.GetString(3).Trim(),
                         Haslo = reader.GetString(4).Trim(),
                         Email = reader.GetString(5).Trim(),
-                        DataRejestracji = reader.GetDateTime(6),
+                        DataRejestracji = reader.GetString(6),
                         NrTelefonu = reader.GetString(7).Trim()
                     };
-
+                    
                     uzytkownk.Adres = new CRUD_Address(connection).Read(reader.GetInt64(8));
                     result.Add(uzytkownk);
                 }

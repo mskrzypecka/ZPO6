@@ -15,8 +15,8 @@ namespace ZPO6._2.CRUD
         }
 
         public int Create(Zamowienie model)
-            => sql.ExecuteNonQuery($"INSERT INTO ZAMOWIENIE (ID, NAZWA, DATAZAMOWIENIA, IDKLIENTA) "
-                + $"VALUES ({model.ID}, '{model.Nazwa}', '{DateTime.Now}', '{model.Klient.ID}')");
+            => sql.ExecuteNonQuery($"INSERT INTO ZAMOWIENIE (ID, NAZWA, DATAZAMOWIENIA, IDKLIENTA, IDDANIA) "
+                + $"VALUES ({model.ID}, '{model.Nazwa}', '{DateTime.Now}', {model.Klient.ID}, {model.Danie.ID})");
 
         public Zamowienie Read(long id)
         {
@@ -28,8 +28,9 @@ namespace ZPO6._2.CRUD
                 {
                     ID = reader.GetInt64(0),
                     Nazwa = reader.GetString(1).Trim(),
-                    DataZamowienia = reader.GetDateTime(2),
-                    Klient = new CRUD_User(connection).Read(reader.GetInt64(3))
+                    DataZamowienia = reader.GetString(2),
+                    Klient = new CRUD_User(connection).Read(reader.GetInt64(3)),
+                    Danie = new CRUD_Dish(connection).Read(reader.GetInt64(4))
                 };
             }
 
@@ -37,7 +38,7 @@ namespace ZPO6._2.CRUD
         }
 
         public int Update(Zamowienie model)
-            => sql.ExecuteNonQuery($"UPDATE ZAMOWIENIE SET NAZWA='{model.Nazwa}', IDKLIENTA={model.Klient.ID} WHERE ID={model.ID}");
+            => sql.ExecuteNonQuery($"UPDATE ZAMOWIENIE SET NAZWA='{model.Nazwa}', IDKLIENTA={model.Klient.ID}, IDDANIA={model.Danie.ID} WHERE ID={model.ID}");
 
         public int Delete(Zamowienie model)
             => sql.ExecuteNonQuery($"DELETE FROM ZAMOWIENIE WHERE ID={model.ID}");
@@ -53,8 +54,9 @@ namespace ZPO6._2.CRUD
                     {
                         ID = reader.GetInt64(0),
                         Nazwa = reader.GetString(1).Trim(),
-                        DataZamowienia = reader.GetDateTime(2),
-                        Klient = new CRUD_User(connection).Read(reader.GetInt64(3))
+                        DataZamowienia = reader.GetString(2),
+                        Klient = new CRUD_User(connection).Read(reader.GetInt64(3)),
+                        Danie = new CRUD_Dish(connection).Read(reader.GetInt64(4))
                     };
 
                     result.Add(zamowienie);

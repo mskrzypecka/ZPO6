@@ -15,8 +15,11 @@ namespace ZPO6._2.CRUD
         }
 
         public int Create(Potrawa model)
-            => sql.ExecuteNonQuery($"INSERT INTO DANIE (ID, NAZWA, CENA, MOZLIWEZAMOWIENIA, JESTWEGE)"
-                + $"VALUES ({model.ID}, '{model.Nazwa}', '{model.Cena}', {model.MozliweZamowienia}, {model.JestWege})");
+        {
+            int isVege = model.JestWege ? 1 : 0;
+            return sql.ExecuteNonQuery($"INSERT INTO DANIE (ID, NAZWA, CENA, MOZLIWEZAMOWIENIA, JESTWEGE)"
+                + $"VALUES ({model.ID}, '{model.Nazwa}', '{model.Cena}', {model.MozliweZamowienia}, {isVege})");
+        }
 
         public Potrawa Read(long id)
         {
@@ -33,12 +36,14 @@ namespace ZPO6._2.CRUD
                     JestWege = reader.GetBoolean(4)
                 };
             }
-
             return new Potrawa();
         }
 
         public int Update(Potrawa model)
-            => sql.ExecuteNonQuery($"UPDATE DANIE SET NAZWA='{model.Nazwa}', CENA={model.Cena}, MOZLIWEZAMOWIENIA={model.MozliweZamowienia}, JESTWEGE={model.JestWege} WHERE ID={model.ID}");
+        {
+            int isVege = model.JestWege ? 1 : 0;
+            return sql.ExecuteNonQuery($"UPDATE DANIE SET NAZWA='{model.Nazwa}', CENA={model.Cena}, MOZLIWEZAMOWIENIA={model.MozliweZamowienia}, JESTWEGE={isVege} WHERE ID={model.ID}");
+        }
 
         public int Delete(Potrawa model)
             => sql.ExecuteNonQuery($"DELETE FROM DANIE WHERE ID={model.ID}");
@@ -50,7 +55,7 @@ namespace ZPO6._2.CRUD
             using (IDataReader reader = sql.ExecuteQuery("SELECT * FROM DANIE"))
                 while (reader.Read())
                 {
-                    var Potrawa = new Potrawa
+                    var potrawa = new Potrawa
                     {
                         ID = reader.GetInt64(0),
                         Nazwa = reader.GetString(1).Trim(),
@@ -58,6 +63,7 @@ namespace ZPO6._2.CRUD
                         MozliweZamowienia = reader.GetInt32(3),
                         JestWege = reader.GetBoolean(4)
                     };
+                    result.Add(potrawa);
                 }
             return result;
         }

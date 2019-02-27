@@ -20,7 +20,7 @@ namespace ZPO6._2.CRUD
 
         public AdresZamieszkania Read(long id)
         {
-            IDataReader reader = sql.ExecuteQuery($"SELECT * FROM ADRESZAMIESZKANIA WHERE ID = {id}");
+            IDataReader reader = sql.ExecuteQuery($"SELECT * FROM ADRES WHERE ID = {id}");
 
             if (reader.Read())
             {
@@ -38,16 +38,16 @@ namespace ZPO6._2.CRUD
         }
 
         public int Update(AdresZamieszkania model)
-            => sql.ExecuteNonQuery($"UPDATE ADRESZAMIESZKANIA SET MIASTO='{model.Miasto}', ULICA='{model.Ulica}', NUMER='{model.Numer}', KODPOCZTOWY='{model.KodPocztowy}' WHERE ID={model.ID}");
+            => sql.ExecuteNonQuery($"UPDATE ADRES SET MIASTO='{model.Miasto}', ULICA='{model.Ulica}', NUMER='{model.Numer}', KODPOCZTOWY='{model.KodPocztowy}' WHERE ID={model.ID}");
 
         public int Delete(AdresZamieszkania model)
-            => sql.ExecuteNonQuery($"DELETE FROM ADRESZAMIESZKANIA WHERE ID={model.ID}");
+            => sql.ExecuteNonQuery($"DELETE FROM ADRES WHERE ID={model.ID}");
 
         public List<AdresZamieszkania> GetAll()
         {
             List<AdresZamieszkania> result = new List<AdresZamieszkania>();
 
-            using (IDataReader reader = sql.ExecuteQuery("SELECT * FROM ADRESZAMIESZKANIA"))
+            using (IDataReader reader = sql.ExecuteQuery("SELECT * FROM ADRES"))
                 while (reader.Read())
                 {
                     var AdresZamieszkania = new AdresZamieszkania

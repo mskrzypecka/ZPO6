@@ -38,6 +38,7 @@ namespace ZPO6._2
             newZamowienie.Nazwa = name;
             newZamowienie.Klient = user;
             newZamowienie.Danie = dish;
+            newZamowienie.DataZamowienia = DateTime.Now.ToString();
             newZamowienie.ID = this.order.GetAll().Count() > 0
                         ? this.order.GetAll().Max(x => x.ID) + 1
                         : 1;

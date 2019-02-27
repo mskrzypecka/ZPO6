@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZPO6.1", "ZPO6.1\ZPO6.1.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZPO6.2", "ZPO6.2\ZPO6.2.csproj", "{846ED499-AB59-4EF5-B348-8183229C525D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZPO2", "ZPO2\ZPO2.csproj", "{EA6A40B9-EC30-48E3-9033-4C6A49B5D8EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZPO2.Tests", "ZPO2.Tests\ZPO2.Tests.csproj", "{4FAE86A5-5AB7-4982-BEA3-B32F2974D577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{846ED499-AB59-4EF5-B348-8183229C525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{846ED499-AB59-4EF5-B348-8183229C525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{846ED499-AB59-4EF5-B348-8183229C525D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6A40B9-EC30-48E3-9033-4C6A49B5D8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6A40B9-EC30-48E3-9033-4C6A49B5D8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6A40B9-EC30-48E3-9033-4C6A49B5D8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6A40B9-EC30-48E3-9033-4C6A49B5D8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAE86A5-5AB7-4982-BEA3-B32F2974D577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAE86A5-5AB7-4982-BEA3-B32F2974D577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAE86A5-5AB7-4982-BEA3-B32F2974D577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAE86A5-5AB7-4982-BEA3-B32F2974D577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

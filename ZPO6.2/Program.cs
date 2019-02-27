@@ -11,7 +11,7 @@ namespace ZPO6._2
     {
         static void Main(string[] args)
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ZPO;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = ZPO6; Integrated Security = True";
 
             AddressService adressService = new AddressService(connectionString);
             AccountService accountService = new AccountService(connectionString);
@@ -32,8 +32,7 @@ namespace ZPO6._2
 
             foreach (var order in orders)
             {
-                Console.WriteLine(order.Nazwa + ": " + order.Danie.Nazwa);
-                Console.WriteLine($"Koszt : {order.Danie.Cena}zl");
+                Console.WriteLine($"{order.DataZamowienia}: {order.Nazwa}: {order.Danie.Nazwa}: {order.Danie.Cena.ToString("0.##")}zl");
             }
 
             Console.ReadKey();

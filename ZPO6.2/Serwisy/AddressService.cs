@@ -26,16 +26,21 @@ namespace ZPO6._2
             adres.Update(model);
         }
 
-        public void CreateAddress(AdresZamieszkania model)
-            => adres.Create(model);
+        public AdresZamieszkania CreateAddress(AdresZamieszkania model)
+        {
+            model.ID = this.adres.GetAll().Count() > 0
+                        ? this.adres.GetAll().Max(x => x.ID) + 1
+                        : 1;
+
+            adres.Create(model);
+            return model;
+        }
 
         public void DeleteAdress(AdresZamieszkania model)
             => adres.Delete(model);
 
         public AdresZamieszkania CreateAddress(string city, string street, int number, string postalCode)
         {
-            
-
             AdresZamieszkania newAdres = new AdresZamieszkania();
             newAdres.Miasto = city;
             newAdres.Ulica = street;

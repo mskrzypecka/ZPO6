@@ -10,6 +10,7 @@ namespace ZPO6._2
     public interface IOrderService
     {
         void CreateOrder(Zamowienie model);
+        Zamowienie CreateOrder(string name, Uzytkownik user, Potrawa dish);
         void ChangeOrderName(Zamowienie model, string name);
         void DeleteOrder(Zamowienie model);
         List<Zamowienie> SelectAllOrderes();

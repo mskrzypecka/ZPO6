@@ -10,6 +10,7 @@ namespace ZPO6._2
     public interface IDishService
     {
         void CreateDish(Potrawa model);
+        Potrawa CreateDish(string name, int price, int possible, bool isVege);
         void ChangeDishName(Potrawa model, string name);
         void ChangeDishPrice(Potrawa model, decimal price);
         void DeleteDish(Potrawa model);

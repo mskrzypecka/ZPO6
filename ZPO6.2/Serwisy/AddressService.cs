@@ -32,6 +32,24 @@ namespace ZPO6._2
         public void DeleteAdress(AdresZamieszkania model)
             => adres.Delete(model);
 
+        public AdresZamieszkania CreateAddress(string city, string street, int number, string postalCode)
+        {
+            
+
+            AdresZamieszkania newAdres = new AdresZamieszkania();
+            newAdres.Miasto = city;
+            newAdres.Ulica = street;
+            newAdres.Numer = number;
+            newAdres.KodPocztowy = postalCode;
+            newAdres.ID = this.adres.GetAll().Count() > 0
+                        ? this.adres.GetAll().Max(x => x.ID) + 1
+                        : 1;
+
+            adres.Create(newAdres);
+
+            return newAdres;
+        }
+
         public List<AdresZamieszkania> SelectAllAdresses()
             => adres.GetAll();
     }

@@ -14,5 +14,6 @@ namespace ZPO6._2
         void CreateAddress(AdresZamieszkania model);
         void DeleteAdress(AdresZamieszkania model);
         List<AdresZamieszkania> SelectAllAdresses();
+        AdresZamieszkania CreateAddress(string city, string street, int number, string postalCode)
     }
 }

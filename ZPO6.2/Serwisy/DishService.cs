@@ -37,5 +37,20 @@ namespace ZPO6._2
 
         public List<Potrawa> SelectAllDishes()
             => dish.GetAll();
+
+        public Potrawa CreateDish(string name, int price, int possible, bool isVege)
+        {
+            Potrawa model = new Potrawa();
+            model.Nazwa = name;
+            model.Cena = price;
+            model.MozliweZamowienia = possible;
+            model.JestWege = isVege;
+            model.ID = this.dish.GetAll().Count() > 0
+                        ? this.dish.GetAll().Max(x => x.ID) + 1
+                        : 1;
+
+            dish.Create(model);
+            return model;
+        }
     }
 }

@@ -31,5 +31,19 @@ namespace ZPO6._2
 
         public List<Zamowienie> SelectAllOrderes()
             => order.GetAll();
+
+        internal Zamowienie CreateOrder(string name, Uzytkownik user, Potrawa dish)
+        {
+            Zamowienie newZamowienie = new Zamowienie();
+            newZamowienie.Nazwa = name;
+            newZamowienie.Klient = user;
+            newZamowienie.Danie = dish;
+            newZamowienie.ID = this.order.GetAll().Count() > 0
+                        ? this.order.GetAll().Max(x => x.ID) + 1
+                        : 1;
+
+            order.Create(newZamowienie);
+            return newZamowienie;
+        }
     }
 }

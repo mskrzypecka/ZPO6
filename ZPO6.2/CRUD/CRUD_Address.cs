@@ -16,7 +16,7 @@ namespace ZPO6._2.CRUD
 
         public int Create(AdresZamieszkania model)
             => sql.ExecuteNonQuery($"INSERT INTO ADRES (ID, Miasto, Ulica, Numer, KodPocztowy)"
-                + $"VALUES ({model.ID}, '{model.Miasto}', '{model.Ulica}', '{model.Numer}', '{model.KodPocztowy}')";
+                + $"VALUES ({model.ID}, '{model.Miasto}', '{model.Ulica}', '{model.Numer}', '{model.KodPocztowy}')");
 
         public AdresZamieszkania Read(long id)
         {

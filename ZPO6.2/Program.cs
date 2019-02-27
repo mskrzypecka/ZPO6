@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZPO6._2.Modele;
 
 namespace ZPO6._2
 {
@@ -17,24 +18,23 @@ namespace ZPO6._2
             DishService dishService = new DishService(connectionString);
             OrderService orderService = new OrderService(connectionString);
 
-            var address = adressService.CreateAddress("Wroclaw", "Sezamkowa", 22, "12-234");
-            var user = accountService.CreateUser("Malgosiek", "haslo", "Malgorzata", "Skrzypecka", "malgorzata.skrzypecka@gmail.com", "000111222", address);
+            AdresZamieszkania address = adressService.CreateAddress("Wroclaw", "Sezamkowa", 22, "12-234");
+            Uzytkownik user = accountService.CreateUser("Malgosiek", "haslo", "Malgorzata", "Skrzypecka", "malgorzata.skrzypecka@gmail.com", "000111222", address);
 
-            var dish = dishService.CreateDish("Nalesniki", 8, 10, true);
-            var order = orderService.CreateOrder("Order1", user, dish);
+            Potrawa pancakes = dishService.CreateDish("Nalesniki", 8, 10, true);
+            Zamowienie order1 = orderService.CreateOrder("Zamowienie nalesnikow 1", user, pancakes);
+            dishService.ChangeDishPrice(pancakes, 15);
+            Zamowienie order2 = orderService.CreateOrder("Zamowienie nalesnikow 2", user, pancakes);
+            Potrawa pizza = dishService.CreateDish("Pizza", 22, 10, true);
+            Zamowienie order3 = orderService.CreateOrder("Zamowienie pizzy 1", user, pizza);
 
-            var dish2 = dishService.Create("Pierogi ruskie", 12, 17, true);
+            var orders = orderService.SelectAllOrderes();
 
-            var add = adressService.GetAll();
-
-            foreach (var a in add)
+            foreach (var order in orders)
             {
-                Console.WriteLine($"{a.City}, {a.Street} {a.Number}, {a.ZipCode}");
+                Console.WriteLine(order.Nazwa + ": " + order.Danie.Nazwa);
+                Console.WriteLine("Koszt : " + order.Danie.Cena + "zl");
             }
-
-            dish2.Price = 9;
-            dishService.Update(dish2);
-            dishService.Delete(dish2);
 
             Console.ReadKey();
         }

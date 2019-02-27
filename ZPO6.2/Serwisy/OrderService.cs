@@ -32,7 +32,7 @@ namespace ZPO6._2
         public List<Zamowienie> SelectAllOrderes()
             => order.GetAll();
 
-        internal Zamowienie CreateOrder(string name, Uzytkownik user, Potrawa dish)
+        public Zamowienie CreateOrder(string name, Uzytkownik user, Potrawa dish)
         {
             Zamowienie newZamowienie = new Zamowienie();
             newZamowienie.Nazwa = name;

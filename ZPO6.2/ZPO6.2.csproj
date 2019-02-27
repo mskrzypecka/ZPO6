@@ -57,8 +57,8 @@
     <Compile Include="Serwisy\Interfejsy\IAddressService.cs" />
     <Compile Include="Serwisy\Interfejsy\IDishService.cs" />
     <Compile Include="Serwisy\Interfejsy\IAccountService.cs" />
-    <Compile Include="Modele\Adres.cs" />
-    <Compile Include="Modele\Danie.cs" />
+    <Compile Include="Modele\AdresZamieszkania.cs" />
+    <Compile Include="Modele\Potrawa.cs" />
     <Compile Include="Modele\Uzytkownik.cs" />
     <Compile Include="Modele\Zamowienie.cs" />
     <Compile Include="Program.cs" />

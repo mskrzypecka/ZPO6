@@ -13,17 +13,17 @@ namespace ZPO6._2.CRUD
         {
         }
 
-        public int Create(Danie model)
+        public int Create(Potrawa model)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(Danie model)
+        public int Delete(Potrawa model)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Danie> GetAll()
+        public List<Potrawa> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace ZPO6._2.CRUD
             throw new NotImplementedException();
         }
 
-        public int Update(Danie model)
+        public int Update(Potrawa model)
         {
             throw new NotImplementedException();
         }

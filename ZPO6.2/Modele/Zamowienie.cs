@@ -12,6 +12,6 @@ namespace ZPO6._2.Modele
         public string Nazwa { get; set; }
         public DateTime DataZamowienia { get; set; }
         public Uzytkownik Klient { get; set; }
-        public Danie NazwaDania { get; set; }
+        public Potrawa Danie { get; set; }
     }
 }

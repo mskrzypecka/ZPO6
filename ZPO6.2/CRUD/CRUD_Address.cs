@@ -13,27 +13,27 @@ namespace ZPO6._2.CRUD
         {
         }
 
-        public int Create(Adres model)
+        public int Create(AdresZamieszkania model)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(Adres model)
+        public int Delete(AdresZamieszkania model)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Adres> GetAll()
+        public List<AdresZamieszkania> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public int Read(long id)
+        public AdresZamieszkania Read(long id)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(Adres model)
+        public int Update(AdresZamieszkania model)
         {
             throw new NotImplementedException();
         }

@@ -9,8 +9,8 @@ namespace ZPO6._2.CRUD
 {
     public class CRUD_DbConnection
     {
-        SqlConnector sql;
-        string connection;
+        protected SqlConnector sql;
+        protected string connection;
 
         public CRUD_DbConnection(string connection)
         {

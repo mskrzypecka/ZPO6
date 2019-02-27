@@ -16,6 +16,6 @@ namespace ZPO6._2.Modele
         public string Email { get; set; }
         public DateTime DataRejestracji { get; set; }
         public string NrTelefonu { get; set; }
-        public Adres Adres { get; set; }
+        public AdresZamieszkania Adres { get; set; }
     }
 }

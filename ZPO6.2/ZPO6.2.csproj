@@ -43,8 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountService.cs" />
-    <Compile Include="IAccountService.cs" />
+    <Compile Include="Serwisy\AddressService.cs" />
+    <Compile Include="Serwisy\DishService.cs" />
+    <Compile Include="Serwisy\OrderService.cs" />
+    <Compile Include="Serwisy\AccountService.cs" />
+    <Compile Include="Serwisy\Interfejsy\IOrderService.cs" />
+    <Compile Include="Serwisy\Interfejsy\IAddressService.cs" />
+    <Compile Include="Serwisy\Interfejsy\IDishService.cs" />
+    <Compile Include="Serwisy\Interfejsy\IAccountService.cs" />
     <Compile Include="Modele\Adres.cs" />
     <Compile Include="Modele\Danie.cs" />
     <Compile Include="Modele\Uzytkownik.cs" />
@@ -54,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CRUD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

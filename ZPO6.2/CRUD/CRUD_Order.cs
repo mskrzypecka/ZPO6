@@ -16,7 +16,7 @@ namespace ZPO6._2.CRUD
 
         public int Create(Zamowienie model)
             => sql.ExecuteNonQuery($"INSERT INTO ZAMOWIENIE (ID, NAZWA, DATAZAMOWIENIA, IDKLIENTA) "
-                + $"VALUES ({model.ID}, '{model.Nazwa}', '{DateTime.Now}', {model.Klient.ID})");
+                + $"VALUES ({model.ID}, '{model.Nazwa}', '{DateTime.Now}', '{model.Klient.ID}')");
 
         public Zamowienie Read(long id)
         {

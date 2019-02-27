@@ -3,34 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZPO6._2.CRUD;
+using ZPO6._2.Modele;
 
 namespace ZPO6._2
 {
     class DishService : IDishService
     {
-        public void ChangeDishName()
+        CRUD_Dish dish;
+
+        public DishService(string connection)
         {
-            throw new NotImplementedException();
+            dish = new CRUD_Dish(connection);
         }
 
-        public void ChangeDishPrice()
+        public void ChangeDishName(Potrawa model, string name)
         {
-            throw new NotImplementedException();
+            model.Nazwa = name;
+            dish.Update(model);
         }
 
-        public void CreateDish()
+        public void ChangeDishPrice(Potrawa model, decimal price)
         {
-            throw new NotImplementedException();
+            model.Cena = price;
+            dish.Update(model);
         }
 
-        public void DeleteDish()
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateDish(Potrawa model)
+            => dish.Create(model);
 
-        public void SelectAllDishes()
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteDish(Potrawa model)
+            => dish.Delete(model);
+
+        public List<Potrawa> SelectAllDishes()
+            => dish.GetAll();
     }
 }

@@ -3,29 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZPO6._2.CRUD;
+using ZPO6._2.Modele;
 
 namespace ZPO6._2
 {
     class OrderService : IOrderService
     {
-        public void ChangeOrder()
+        CRUD_Order order;
+
+        public OrderService(string connection)
         {
-            throw new NotImplementedException();
+            order = new CRUD_Order(connection);
         }
 
-        public void CreateOrder()
+        public void ChangeOrderName(Zamowienie model, string name)
         {
-            throw new NotImplementedException();
+            model.Nazwa = name;
+            order.Update(model);
         }
 
-        public void DeleteOrder()
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateOrder(Zamowienie model)
+            => order.Create(model);
 
-        public void SelectAllOrders()
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteOrder(Zamowienie model)
+            => order.Delete(model);
+
+        public List<Zamowienie> SelectAllOrderes()
+            => order.GetAll();
     }
 }

@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="inserty\insert_Zamowienia.sql" />
+    <Content Include="inserty\insert_Danie.sql" />
+    <Content Include="inserty\insert_Uzytkownicy.sql" />
+    <Content Include="inserty\insert_Adresy.sql" />
+    <Content Include="tworzenie_tabeli\Adres.sql" />
+    <Content Include="tworzenie_tabeli\Danie.sql" />
+    <Content Include="tworzenie_tabeli\Uzytkownik.sql" />
+    <Content Include="tworzenie_tabeli\Zamowienie.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

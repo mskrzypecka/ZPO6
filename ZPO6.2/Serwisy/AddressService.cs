@@ -3,34 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZPO6._2.CRUD;
+using ZPO6._2.Modele;
 
 namespace ZPO6._2
 {
     class AddressService : IAddressService
     {
-        public void ChangeAddress()
+        CRUD_Address adres;
+
+        public AddressService(string connection)
         {
-            throw new NotImplementedException();
+            adres = new CRUD_Address(connection);
         }
 
-        public void ChangeAdress()
+        public void ChangeAdress(AdresZamieszkania model)
+            => adres.Update(model);
+
+        public void ChangeCity(AdresZamieszkania model, string miasto)
         {
-            throw new NotImplementedException();
+            model.Miasto = miasto;
+            adres.Update(model);
         }
 
-        public void CreateAddress()
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateAddress(AdresZamieszkania model)
+            => adres.Create(model);
 
-        public void DeleteAdress()
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteAdress(AdresZamieszkania model)
+            => adres.Delete(model);
 
-        public void SelectAllAdresses()
-        {
-            throw new NotImplementedException();
-        }
+        public List<AdresZamieszkania> SelectAllAdresses()
+            => adres.GetAll();
     }
 }

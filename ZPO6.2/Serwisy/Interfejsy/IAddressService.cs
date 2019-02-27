@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZPO6._2.Modele;
 
 namespace ZPO6._2
 {
     public interface IAddressService
     {
-        void ChangeAdress();
-        void CreateAddress();
-        void ChangeAddress();
-        void DeleteAdress();
-        void SelectAllAdresses();
+        void ChangeAdress(AdresZamieszkania model);
+        void ChangeCity(AdresZamieszkania model, string miasto);
+        void CreateAddress(AdresZamieszkania model);
+        void DeleteAdress(AdresZamieszkania model);
+        List<AdresZamieszkania> SelectAllAdresses();
     }
 }

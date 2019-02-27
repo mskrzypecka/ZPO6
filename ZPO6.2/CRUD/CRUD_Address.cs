@@ -7,29 +7,33 @@ using ZPO6._2.Modele;
 
 namespace ZPO6._2.CRUD
 {
-    class CRUD_Address : ICRUD
+    public class CRUD_Address : CRUD_DbConnection
     {
-        public int Create(IModel model)
+        public CRUD_Address(string connection) : base(connection)
+        {
+        }
+
+        public int Create(Adres model)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(IModel model)
+        public int Delete(Adres model)
         {
             throw new NotImplementedException();
         }
 
-        public void GetAll()
+        public IEnumerable<Adres> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public int Read(IModel id)
+        public int Read(long id)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(IModel model)
+        public int Update(Adres model)
         {
             throw new NotImplementedException();
         }

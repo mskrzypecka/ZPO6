@@ -7,29 +7,33 @@ using ZPO6._2.Modele;
 
 namespace ZPO6._2.CRUD
 {
-    class CRUD_Dish : ICRUD
+    public class CRUD_Dish : CRUD_DbConnection
     {
-        public int Create(IModel model)
+        public CRUD_Dish(string connection) : base(connection)
+        {
+        }
+
+        public int Create(Danie model)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(IModel model)
+        public int Delete(Danie model)
         {
             throw new NotImplementedException();
         }
 
-        public void GetAll()
+        public IEnumerable<Danie> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public int Read(IModel id)
+        public int Read(long id)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(IModel model)
+        public int Update(Danie model)
         {
             throw new NotImplementedException();
         }

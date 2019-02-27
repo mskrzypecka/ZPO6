@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="CRUD\CRUD_User.cs" />
     <Compile Include="CRUD\CRUD_Address.cs" />
-    <Compile Include="CRUD\ICRUD.cs" />
+    <Compile Include="CRUD\CRUD_DbConnection.cs" />
     <Compile Include="CRUD\CRUD_Dish.cs" />
     <Compile Include="CRUD\CRUD_Order.cs" />
     <Compile Include="Modele\IModel.cs" />

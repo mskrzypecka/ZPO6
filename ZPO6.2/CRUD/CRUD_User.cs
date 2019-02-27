@@ -7,29 +7,33 @@ using ZPO6._2.Modele;
 
 namespace ZPO6._2.CRUD
 {
-    class CRUD_User : ICRUD
+    public class CRUD_User : CRUD_DbConnection
     {
-        public int Create(IModel model)
+        public CRUD_User(string connection) : base(connection)
+        {
+        }
+
+        public int Create(Uzytkownik model)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(IModel model)
+        public int Delete(Uzytkownik model)
         {
             throw new NotImplementedException();
         }
 
-        public void GetAll()
+        public IEnumerable<Uzytkownik> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public int Read(IModel id)
+        public int Read(long id)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(IModel model)
+        public int Update(Uzytkownik model)
         {
             throw new NotImplementedException();
         }

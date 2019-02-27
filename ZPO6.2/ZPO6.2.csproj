@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRUD\CRUD_Account.cs" />
+    <Compile Include="CRUD\CRUD_Address.cs" />
+    <Compile Include="CRUD\CRUD_Dish.cs" />
+    <Compile Include="CRUD\CRUD_Order.cs" />
     <Compile Include="Serwisy\AddressService.cs" />
     <Compile Include="Serwisy\DishService.cs" />
     <Compile Include="Serwisy\OrderService.cs" />
@@ -57,12 +61,11 @@
     <Compile Include="Modele\Zamowienie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CRUD\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
